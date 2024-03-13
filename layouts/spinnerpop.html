@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sikander PlayX</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <style>
+      .top-26 {
+        top: 26px;
+      }
+
+      button.pop-btn {
+    background-image: url(../img/pop-up/cvqacvqa\ 1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 102px !important;
+    height: 38px;
+    font-size: 16px !important;
+    color: #f2ff00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:8px;
+    font-weight: 500 !important;
+    border: 1px solid #F8C844;
+   
+}
+.mr-7{
+    margin-right: 7px;
+}
+.mr-12{
+  margin-right: 12px;
+}
+@media(max-width:350px){
+  button.pop-btn {
+  
+    width: 90px !important;
+    height: 38px;
+    font-size: 14px !important;
+    color: #f2ff00;
+   
+   
+}
+}
+    </style>
+
+<style>
+    /* 
+--------------------------------
+spinner style
+-------------------------------- */
+    .height-full {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .bonuspage.spin {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wheel-container {
+      background: black;
+      padding: 20px;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wheel-container::after {
+      content: "";
+      width: 30px;
+      height: 40px;
+      background-color: rgb(247 247 247);
+      top: -0px;
+      left: 48%;
+      position: absolute;
+      clip-path: polygon(
+        61% 0,
+        60% 61%,
+        60% 61%,
+        60% 61%,
+        35% 91%,
+        12% 57%,
+        13% 0
+      );
+    }
+
+    .spinner_container {
+      position: relative;
+      width: 240px;
+      height: 240px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .spinner_container .spin-btn {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border-radius: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+      border: 4px solid #b8b0b0;
+      background-color: white;
+      color: #333;
+      text-align: center;
+      z-index: 9;
+    }
+
+    .spinner_container .wheel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px #d33077, 0 0 0 0px #fff, 0 0 0 0px #111;
+      overflow: hidden;
+      transition: transform 5s ease-in-out;
+    }
+
+    .spinner_container .wheel .number {
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      background: var(--clr);
+      transform-origin: bottom right;
+      transform: rotate(calc(45deg * var(--i)));
+      clip-path: polygon(0 0, 62% 0, 100% 100%, 0 56%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+      cursor: pointer;
+    }
+
+    .spinner_container .wheel .number span {
+      position: relative;
+      transform: rotate(318deg);
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff !important;
+      text-shadow: 3px 5px 2px rgba(0, 0, 0, 0.15);
+    }
+    .spinner_container .wheel .number span ::after {
+      content: "$";
+      position: absolute;
+      font-size: 0.75em;
+      font-weight: 500;
+    }
+
+    .border-wheel {
+      padding: 4px;
+      border-radius: 50%;
+      background-image: conic-gradient(
+        #ffa92f,
+        #ff9b0a,
+        #34bce5,
+        #1dcbff,
+        #ff3a92,
+        #cf2f75,
+        #f3a22c
+      );
+      box-shadow: rgb(197 197 197 / 25%) 0px 54px 55px,
+        rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgb(133 130 130 / 17%) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
+
+    .button.spinner.btn {
+      position: relative;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+      padding-block: 0.5rem;
+      padding-inline: 1.25rem;
+      background-color: rgb(0 92 111);
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffff;
+      gap: 10px;
+      font-weight: bold;
+      border: 3px solid #ffffff4d;
+      outline: none;
+      overflow: hidden;
+      font-size: 15px;
+      text-transform: capitalize;
+      background-size: 280% auto;
+      background-image: linear-gradient(
+        325deg,
+        var(--btn-bg-2) 0%,
+        var(--btn-bg-1) 55%,
+        var(--btn-bg-2) 90%
+      );
+      border: none;
+      box-shadow: 0px 0px 20px rgba(71, 184, 255, 0.5),
+        0px 5px 5px -1px rgba(58, 125, 233, 0.25),
+        inset 4px 4px 8px rgba(175, 230, 255, 0.5),
+        inset -4px -4px 8px rgba(19, 95, 216, 0.35);
+    }
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .button.spinner.btn:hover {
+      transform: scale(1.05);
+      border-color: #fff9;
+    }
+
+    .button.spinner.btn:hover .icon {
+      transform: translate(4px);
+    }
+
+    .button.spinner.btn:hover::before {
+      animation: shine 1.5s ease-out infinite;
+    }
+
+    .button.spinner.btn::before {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100%;
+      background-image: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0) 30%,
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0) 70%
+      );
+      top: 0;
+      left: -100px;
+      opacity: 0.6;
+    }
+
+    @keyframes shine {
+      0% {
+        left: -100px;
+      }
+
+      60% {
+        left: 100%;
+      }
+
+      to {
+        left: 100%;
+      }
+    }
+
+    /* 
+--------------------------------
+spinner style end
+-------------------------------- */
+
+@media(max-width:360px){
+    
+    .spinner_container {
+      position: relative;
+      width: 212px;
+      height: 212px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .sm-top365{
+        top:-365px !important;
+    }
+}
+  </style>
+  </head>
+  <body>
+    <div class="container container-xs vh-100 intro-bg" id="intro">
+      <div class="d-flex align-items-center justify-content-center vh-100">
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          POP-UP
+        </button>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-transparent">
+              <div class="modal-body">
+                <div >
+                  <img src="../img/pop-up/popup (1).png" alt="" class="w-100"  class="position-relative"/>
+                  
+                    <div class="position-relative d-flex justify-content-center  sm-top365" style="top:-425px">
+                        <!-- -------spinner---- -->
+          <section class="container-sm p-0 height-full">
+              <div class="bonuspage spin">
+                <div class="border-wheel">
+                  <div class="wheel-container">
+                    <div class="spinner_container">
+                      <div class="spin-btn"></div>
+    
+                      <div class="wheel over">
+                        <div class="number" style="--i: 1; --clr: #fe8616">
+                          <span class="text-primary">3%</span>
+                        </div>
+                        <div class="number" style="--i: 2; --clr: #fba915">
+                          <span class="text-primary">5%</span>
+                        </div>
+                        <div class="number" style="--i: 3; --clr: #1ba0fb">
+                          <span class="text-primary">3%</span>
+                        </div>
+                        <div class="number" style="--i: 4; --clr: #ca0a60">
+                          <span class="text-primary">Oops</span>
+                        </div>
+                        <div class="number" style="--i: 5; --clr: #500bef">
+                          <span class="text-primary">3%</span>
+                        </div>
+                        <div class="number" style="--i: 6; --clr: #017a6e">
+                          <span class="text-primary">5%</span>
+                        </div>
+                        <div class="number" style="--i: 7; --clr: #8e8c8b">
+                          <span class="text-primary">3%</span>
+                        </div>
+                        <div class="number" style="--i: 8; --clr: #fe400e">
+                          <span class="text-primary">Oops</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="button spinner btn">Spin to Win</button>
+              <!-- <button class="button spinner btn" >Spin to Win</button> -->
+            </section>
+    
+            <!-- -------spinner end------>
+                    </div>
+                   </div>
+                
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/bootstrap.bundle.js"></script>
+    <!-- <script src="../js/jquery.min.js"></script> -->
+  </body>
+</html>
